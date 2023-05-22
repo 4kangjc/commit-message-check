@@ -1,24 +1,13 @@
-name: 'Check commit message style'
-on:
-  pull_request:
-    types:
-      - feat
-      - fix
-      - docs
-      - style
-      - refactor
-      - chore
-      - test
-      - perf
-      - ci
-  push:
-    branches:
-      - main
+name: Check Commit Message
+
+on: [pull_request, push]
 
 jobs:
-  check-commit-message-style:
-    name: Check commit message style
+  check:
     runs-on: ubuntu-latest
     steps:
-      - name: Check
-        uses: mristin/opinionated-commit-message@v3.0.0
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Check commit 🧪
+        uses: adityaa30/check-commit@master
